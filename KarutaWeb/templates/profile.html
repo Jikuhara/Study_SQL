@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Profile - KarutaWeb</title>
+</head>
+<body>
+    <h1>Your Profile</h1>
+    <form method="post">
+        <label>Username:</label>
+        <input type="text" name="username" value="{{ user.username }}" required>
+        <br>
+        <input type="submit" value="Update Profile">
+    </form>
+    <p><a href="{{ url_for('dashboard') }}">Return to Dashboard</a></p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+         <ul>
+         {% for msg in messages %}
+           <li>{{ msg }}</li>
+         {% endfor %}
+         </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
